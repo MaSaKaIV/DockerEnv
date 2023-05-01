@@ -1,0 +1,10 @@
+version: '3'
+services:
+  python-conda:
+    build:
+      context: ./src/python-conda/
+      dockerfile: Dockerfile
+    container_name: 'python-conda'
+    working_dir: '/home/masakai/'
+    tty: true
+    image: masakai54/python-conda
