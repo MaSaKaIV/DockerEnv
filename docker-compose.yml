@@ -1,10 +1,36 @@
 version: '3'
-services:
-  python-conda:
+
+volumes:
+  docker-volume:
+
+services:      
+  db:
+    container_name: sample-mysql
+    image: mysql
+    environment:
+      MYSQL_ROOT_PASSWORD: root
+      MYSQL_DATABASE: test_database
+      MYSQL_USER: docker
+      MYSQL_PASSWORD: docker
+    restart: 'always'
+    expose:
+      - '3306'
+    ports:
+      - "3306:3306"
+    networks:
+      - app-net
+
+  app:
+  # mysql -h dockerenv-db-run-58c0d3aed370 -u root -D test_database -p
+    container_name: 'pm'
     build:
-      context: ./src/python-conda/
+      context: ./src/mysql-cli/
       dockerfile: Dockerfile
-    container_name: 'python-conda'
     working_dir: '/home/masakai/'
-    tty: true
-    image: masakai54/python-conda
+    image: masakai54/mysql-cli
+    networks:
+      - app-net
+
+networks:
+  app-net:
+    driver: bridge
