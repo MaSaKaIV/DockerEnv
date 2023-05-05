@@ -1,7 +1,5 @@
 FROM masakai54/sheldon:latest
 
-ENV PYTHON_VERSION 3.8.16
-
 ARG USERNAME=masakai
 WORKDIR /home/${USERNAME}
 USER ${USERNAME}
