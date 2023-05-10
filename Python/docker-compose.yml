@@ -1,8 +1,4 @@
 version: '3'
-
-volumes:
-  docker-volume:
-
 services:
   app:
   # mysql -h <container_name> -u <user> -D <db_name> -p
@@ -16,7 +12,7 @@ services:
       - app-net
 
   db:
-    container_name: sample-mysql
+    container_name: 'mysql-db'
     image: mysql
     environment:
       MYSQL_ROOT_PASSWORD: root

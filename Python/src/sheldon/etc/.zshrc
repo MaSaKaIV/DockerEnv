@@ -11,11 +11,11 @@ PATH="/usr/local/bin:${PATH}"
 # コマンドの履歴機能
 # 履歴ファイルの保存先
 HISTFILE=$HOME/.zsh_history
+
 # メモリに保存される履歴の件数
 HISTSIZE=10000
 # HISTFILE で指定したファイルに保存される履歴の件数
 SAVEHIST=10000
-
 # To customize prompt, run `p10k configure` or edit ~/.p10k.zsh.
 [[ ! -f ~/.p10k.zsh ]] || source ~/.p10k.zsh
 
