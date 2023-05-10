@@ -21,6 +21,5 @@ RUN echo "N" | zsh -ic "sheldon init --shell zsh"
 RUN zsh -ic "eval \"$(sheldon source)"\" &&\
     zsh -ic "source ~/.zshrc"
 
-
 ENV SHELL="/usr/bin/zsh"
 CMD ["/usr/bin/zsh"]
