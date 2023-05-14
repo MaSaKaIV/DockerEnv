@@ -9,6 +9,7 @@ ARG ENV_NAME="pm"
 COPY etc/${ENV_YML} /home/${USERNAME}/${ENV_YML}
 
 RUN sudo apt-get update &&\
+    sudo apt-get install -y gcc default-libmysqlclient-dev &&\
     sudo apt-get install -y default-mysql-client
 
 RUN conda env create -n ${ENV_NAME} -f ${ENV_YML}
