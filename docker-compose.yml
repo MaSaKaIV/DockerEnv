@@ -1,32 +1,9 @@
 version: '3'
 services:
-  app:
-  # mysql -h <container_name> -u <user> -D <db_name> -p
-    container_name: 'django'
+  python:
+    container_name: 'python-conda'
     build:
-      context: ./src/django/
+      context: ./src/python-conda/
       dockerfile: Dockerfile
     working_dir: '/home/masakai/'
-    image: masakai54/django
-    networks:
-      - app-net
-
-  db:
-    container_name: 'mysql-db'
-    image: mysql
-    environment:
-      MYSQL_ROOT_PASSWORD: root
-      MYSQL_DATABASE: db
-      MYSQL_USER: masakai
-      MYSQL_PASSWORD: masakai
-    restart: 'always'
-    expose:
-      - '3306'
-    ports:
-      - "3306:3306"
-    networks:
-      - app-net
-
-networks:
-  app-net:
-    driver: bridge
+    image: masakai54/python-conda
